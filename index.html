@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ja" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>JavaScript Practice</title>
+    <style media="screen">
+      .box {
+            width: 100px;
+            height: 100px;
+            background: skyblue;
+            cursor: pointer;
+          }
+    </style>
+  </head>
+  <body>
+     <div class="box" id="target"></div>
+
+     <script type="text/javascript">
+       'use strict';
+
+       //document.getElementById(''): 指定した id を持つ要素を文書全体から取得
+       //addEventListener: 何か起きたら何かの処理をするという仕組み
+       document.getElementById('target').addEventListener('click', () => {
+         document.getElementById('target').style.background = 'pink';
+         document.getElementById('target').style.borderRadius = ' 50%';
+       });
+     </script>
+  </body>
+</html>
