@@ -17,8 +17,10 @@
         background: skyblue;
         cursor: pointer;
         transition: 0.8s;
-        margin: 0 8px 0 8px;
-          }
+        margin: 5px;
+        text-align: center;
+        line-height: 100px;
+      }
       .circle {
         background: pink;
         border-radius: 50%;
@@ -27,28 +29,29 @@
     </style>
   </head>
   <body>
-     <div class="box" id="target1"></div>
-     <div class="box" id="target2"></div>
-     <div class="box" id="target3"></div>
+
 
      <script type="text/javascript">
        'use strict';
 
-       //定数で省略化
-       const target1 = document.getElementById('target1');
-       const target2 = document.getElementById('target2');
-       const target3 = document.getElementById('target3');
+       for (let i = 0; i < 100; i++) {
 
-       //toggle:target に circle クラスがなかったら付ける、付いていたら外す、という処理をする
-       target1.addEventListener('click', () => {
-         target1.classList.toggle('circle');
-       });
-       target2.addEventListener('click', () => {
-         target2.classList.toggle('circle');
-       });
-       target3.addEventListener('click', () => {
-         target3.classList.toggle('circle');
-       });
+         //divタグを定義し、定数化
+         const div = document.createElement('div');
+         //divタグにboxクラスを追加、スタイルを付与
+         div.classList.add('box');
+         div.textContent = i;
+
+         div.addEventListener('click', () => {
+           div.classList.toggle('circle');
+         });
+
+         //bodyの子要素としてdivを追加する
+         //(これでbodyタグの中にdivタグが追加され、HTML内にdivタグが存在することとになる)
+         document.body.appendChild(div);
+       }
+
+
      </script>
   </body>
 </html>
