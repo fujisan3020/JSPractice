@@ -21,10 +21,13 @@
         text-align: center;
         line-height: 100px;
       }
-      .circle {
+      .win {
         background: pink;
         border-radius: 50%;
         transform: rotate(360deg);
+      }
+      .lose {
+        transform: scale(0.9);
       }
     </style>
   </head>
@@ -34,16 +37,25 @@
      <script type="text/javascript">
        'use strict';
 
-       for (let i = 0; i < 100; i++) {
+       const num = 5;
+       const winner = Math.floor(Math.random() * num); // 0 - 4
+
+       for (let i = 0; i < num; i++) {
 
          //divタグを定義し、定数化
          const div = document.createElement('div');
          //divタグにboxクラスを追加、スタイルを付与
          div.classList.add('box');
-         div.textContent = i;
 
          div.addEventListener('click', () => {
-           div.classList.toggle('circle');
+           if (i === winner) {
+              div.textContent = 'Win!';
+              div.classList.add('win');
+           } else {
+              div.textContent = 'Lose!';
+              div.classList.add('lose');
+
+           }
          });
 
          //bodyの子要素としてdivを追加する
